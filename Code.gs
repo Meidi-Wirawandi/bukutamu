@@ -158,7 +158,7 @@ function getStatistik() {
       return {
         success: true, 
         totalTamu: 0,
-        tamuHariIni: 0,
+        tamuMingguIni: 0,  // Changed from tamuHariIni to tamuMingguIni
         jenisInstitusi: {
           perorangan: 0,
           institusi: 0
@@ -172,10 +172,16 @@ function getStatistik() {
     // Hitung total tamu
     var totalTamu = data.length;
     
-    // Hitung tamu hari ini
+    // Get today's date and date 7 days ago
     var today = new Date();
     today.setHours(0, 0, 0, 0);
-    var tamuHariIni = 0;
+    
+    var sevenDaysAgo = new Date();
+    sevenDaysAgo.setDate(today.getDate() - 7);
+    sevenDaysAgo.setHours(0, 0, 0, 0);
+    
+    // Hitung tamu 7 hari terakhir
+    var tamuMingguIni = 0;  // Changed from tamuHariIni to tamuMingguIni
     
     // Hitung berdasarkan jenis institusi
     var perorangan = 0;
@@ -183,8 +189,8 @@ function getStatistik() {
     
     for (var i = 0; i < data.length; i++) {
       var tanggal = new Date(data[i][1]);
-      if (tanggal >= today) {
-        tamuHariIni++;
+      if (tanggal >= sevenDaysAgo && tanggal <= today) {
+        tamuMingguIni++;
       }
       
       if (data[i][4] === 'Perorangan') {
@@ -197,7 +203,7 @@ function getStatistik() {
     return {
       success: true,
       totalTamu: totalTamu,
-      tamuHariIni: tamuHariIni,
+      tamuMingguIni: tamuMingguIni,  // Changed from tamuHariIni to tamuMingguIni
       jenisInstitusi: {
         perorangan: perorangan,
         institusi: institusi
