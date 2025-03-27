@@ -42,7 +42,6 @@
   <header class="bg-blue-600 text-white shadow-md">
     <div class="container mx-auto px-4 py-4 flex justify-between items-center">
       <div class="flex items-center">
-        <img src="https://drive.google.com/file/d/1Uz27yMA_0Z2yqq7bbLfeG9p81N4SJAhY/preview" alt="Logo" class="h-10 mr-3">
         <h1 class="text-xl font-bold">Buku Tamu Dinas Kesehatan Kabupaten Hulu Sungai Utara</h1>
       </div>
       <button id="adminLoginBtn" class="bg-white text-blue-600 px-4 py-2 rounded-md hover:bg-blue-100 transition">
@@ -55,42 +54,55 @@
   <main class="container mx-auto px-4 py-8">
     <!-- User Page -->
     <div id="userPage" class="block">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
         <!-- Statistik Card 1 -->
-        <div class="bg-white rounded-lg shadow-md p-6">
+        <div class="bg-white rounded-lg shadow-md p-4">
           <div class="flex items-center">
             <div class="p-3 rounded-full bg-blue-100 text-blue-500">
               <i class="fas fa-users text-2xl"></i>
             </div>
-            <div class="ml-4">
+            <div class="ml-3">
               <h3 class="text-gray-500 text-sm">Total Pengunjung</h3>
-              <p id="totalTamu" class="text-2xl font-semibold">0</p>
+              <p id="totalTamu" class="text-xl font-semibold">0</p>
             </div>
           </div>
         </div>
         
         <!-- Statistik Card 2 -->
-        <div class="bg-white rounded-lg shadow-md p-6">
+        <div class="bg-white rounded-lg shadow-md p-4">
           <div class="flex items-center">
             <div class="p-3 rounded-full bg-green-100 text-green-500">
               <i class="fas fa-calendar-day text-2xl"></i>
             </div>
-            <div class="ml-4">
-              <h3 class="text-gray-500 text-sm">Pengunjung Hari Ini</h3>
-              <p id="tamuHariIni" class="text-2xl font-semibold">0</p>
+            <div class="ml-3">
+              <h3 class="text-gray-500 text-sm">7 Hari Terakhir</h3>
+              <p id="tamuHariIni" class="text-xl font-semibold">0</p>
             </div>
           </div>
         </div>
         
         <!-- Statistik Card 3 -->
-        <div class="bg-white rounded-lg shadow-md p-6">
+        <div class="bg-white rounded-lg shadow-md p-4">
           <div class="flex items-center">
             <div class="p-3 rounded-full bg-purple-100 text-purple-500">
               <i class="fas fa-building text-2xl"></i>
             </div>
-            <div class="ml-4">
+            <div class="ml-3">
               <h3 class="text-gray-500 text-sm">Mewakili Institusi</h3>
-              <p id="tamuInstitusi" class="text-2xl font-semibold">0</p>
+              <p id="tamuInstitusi" class="text-xl font-semibold">0</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Statistik Card 4 -->
+        <div class="bg-white rounded-lg shadow-md p-4">
+          <div class="flex items-center">
+            <div class="p-3 rounded-full bg-yellow-100 text-yellow-500">
+              <i class="fas fa-user text-2xl"></i>
+            </div>
+            <div class="ml-3">
+              <h3 class="text-gray-500 text-sm">Perorangan</h3>
+              <p id="tamuPerorangan" class="text-xl font-semibold">0</p>
             </div>
           </div>
         </div>
@@ -147,6 +159,26 @@
             </button>
           </div>
         </form>
+      </div>
+      
+      <!-- Recent Visitors for User Page -->
+      <div class="bg-white rounded-lg shadow-md p-6 mt-6">
+        <h3 class="text-xl font-semibold mb-4 text-gray-700">Pengunjung Terbaru</h3>
+        <div class="overflow-x-auto">
+          <table class="min-w-full bg-white">
+            <thead>
+              <tr>
+                <th class="py-2 px-4 border-b text-left">Tanggal</th>
+                <th class="py-2 px-4 border-b text-left">Nama</th>
+                <th class="py-2 px-4 border-b text-left">Institusi</th>
+                <th class="py-2 px-4 border-b text-left">Keperluan</th>
+              </tr>
+            </thead>
+            <tbody id="userRecentVisitorsTable">
+              <!-- Data will be populated by JavaScript -->
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
     
@@ -212,42 +244,55 @@
           <div id="adminDashboard" class="block">
             <h2 class="text-2xl font-semibold mb-6 text-gray-700">Dashboard</h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
               <!-- Statistik Card 1 -->
-              <div class="bg-white rounded-lg shadow-md p-6">
+              <div class="bg-white rounded-lg shadow-md p-4">
                 <div class="flex items-center">
                   <div class="p-3 rounded-full bg-blue-100 text-blue-500">
                     <i class="fas fa-users text-2xl"></i>
                   </div>
-                  <div class="ml-4">
+                  <div class="ml-3">
                     <h3 class="text-gray-500 text-sm">Total Pengunjung</h3>
-                    <p id="adminTotalTamu" class="text-2xl font-semibold">0</p>
+                    <p id="adminTotalTamu" class="text-xl font-semibold">0</p>
                   </div>
                 </div>
               </div>
               
               <!-- Statistik Card 2 -->
-              <div class="bg-white rounded-lg shadow-md p-6">
+              <div class="bg-white rounded-lg shadow-md p-4">
                 <div class="flex items-center">
                   <div class="p-3 rounded-full bg-green-100 text-green-500">
                     <i class="fas fa-calendar-day text-2xl"></i>
                   </div>
-                  <div class="ml-4">
-                    <h3 class="text-gray-500 text-sm">Pengunjung Hari Ini</h3>
-                    <p id="adminTamuHariIni" class="text-2xl font-semibold">0</p>
+                  <div class="ml-3">
+                    <h3 class="text-gray-500 text-sm">7 Hari Terakhir</h3>
+                    <p id="adminTamuHariIni" class="text-xl font-semibold">0</p>
                   </div>
                 </div>
               </div>
               
               <!-- Statistik Card 3 -->
-              <div class="bg-white rounded-lg shadow-md p-6">
+              <div class="bg-white rounded-lg shadow-md p-4">
                 <div class="flex items-center">
                   <div class="p-3 rounded-full bg-purple-100 text-purple-500">
                     <i class="fas fa-building text-2xl"></i>
                   </div>
-                  <div class="ml-4">
+                  <div class="ml-3">
                     <h3 class="text-gray-500 text-sm">Mewakili Institusi</h3>
-                    <p id="adminTamuInstitusi" class="text-2xl font-semibold">0</p>
+                    <p id="adminTamuInstitusi" class="text-xl font-semibold">0</p>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Statistik Card 4 -->
+              <div class="bg-white rounded-lg shadow-md p-4">
+                <div class="flex items-center">
+                  <div class="p-3 rounded-full bg-yellow-100 text-yellow-500">
+                    <i class="fas fa-user text-2xl"></i>
+                  </div>
+                  <div class="ml-3">
+                    <h3 class="text-gray-500 text-sm">Perorangan</h3>
+                    <p id="adminTamuPerorangan" class="text-xl font-semibold">0</p>
                   </div>
                 </div>
               </div>
@@ -300,6 +345,21 @@
                     <!-- Data will be populated by JavaScript -->
                   </tbody>
                 </table>
+              </div>
+              
+              <!-- Pagination Controls -->
+              <div class="mt-4 flex justify-between items-center">
+                <div>
+                  <span id="paginationInfo" class="text-sm text-gray-600">Menampilkan 1-10 dari 0 tamu</span>
+                </div>
+                <div class="flex space-x-2">
+                  <button id="prevPageBtn" class="px-3 py-1 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed">
+                    <i class="fas fa-chevron-left"></i>
+                  </button>
+                  <button id="nextPageBtn" class="px-3 py-1 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed">
+                    <i class="fas fa-chevron-right"></i>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -367,7 +427,7 @@
   <!-- Footer -->
   <footer class="bg-gray-800 text-white py-4">
     <div class="container mx-auto px-4 text-center">
-      <p>&copy; 2023 Dinas Kesehatan Kabupaten Hulu Sungai Utara. All rights reserved.</p>
+      <p>&copy; 2025 Dinas Kesehatan Kabupaten Hulu Sungai Utara. All rights reserved.</p>
       </div>
     </footer>
   
@@ -398,6 +458,9 @@
     // Global variables
     let adminData = null;
     let allTamuData = [];
+    let currentPage = 1;
+    let itemsPerPage = 10;
+    let filteredData = [];
     
     // DOM Elements
     const userPage = document.getElementById('userPage');
@@ -425,6 +488,9 @@
     const alertMessage = document.getElementById('alertMessage');
     const alertOkButton = document.getElementById('alertOkButton');
     const loadingSpinner = document.getElementById('loadingSpinner');
+    const prevPageBtn = document.getElementById('prevPageBtn');
+    const nextPageBtn = document.getElementById('nextPageBtn');
+    const paginationInfo = document.getElementById('paginationInfo');
     
     // Initialize the application
     document.addEventListener('DOMContentLoaded', function() {
@@ -440,11 +506,57 @@
       
       // Load statistics for user page
       loadStatistics();
+      
+      // Load recent visitors for user page
+      loadRecentVisitorsForUser();
     });
     
     // Show loading spinner
     function showLoading() {
       loadingSpinner.classList.remove('hidden');
+    }
+    
+    // Load recent visitors for user page
+    function loadRecentVisitorsForUser() {
+      showLoading();
+      google.script.run
+        .withSuccessHandler(function(response) {
+          if (response.success) {
+            const recentTamu = response.data.sort((a, b) => {
+              return new Date(b['Tanggal']) - new Date(a['Tanggal']);
+            }).slice(0, 5);
+            
+            const userRecentVisitorsTable = document.getElementById('userRecentVisitorsTable');
+            userRecentVisitorsTable.innerHTML = '';
+            
+            if (recentTamu.length === 0) {
+              const row = document.createElement('tr');
+              row.innerHTML = `
+                <td colspan="4" class="py-4 text-center text-gray-500">Belum ada data pengunjung</td>
+              `;
+              userRecentVisitorsTable.appendChild(row);
+            } else {
+              recentTamu.forEach(function(tamu) {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                  <td class="py-2 px-4 border-b">${tamu['Tanggal']}</td>
+                  <td class="py-2 px-4 border-b">${tamu['Nama']}</td>
+                  <td class="py-2 px-4 border-b">${tamu['Institusi/Asal']}</td>
+                  <td class="py-2 px-4 border-b">${tamu['Keperluan']}</td>
+                `;
+                userRecentVisitorsTable.appendChild(row);
+              });
+            }
+          } else {
+            console.error('Error loading recent visitors:', response.message);
+          }
+          hideLoading();
+        })
+        .withFailureHandler(function(error) {
+          console.error('Error loading recent visitors:', error);
+          hideLoading();
+        })
+        .getAllTamu();
     }
     
     // Hide loading spinner
@@ -479,22 +591,40 @@
       showLoading();
       google.script.run
         .withSuccessHandler(function(response) {
-          if (response.success) {
-            // Update user page statistics
-            document.getElementById('totalTamu').textContent = response.totalTamu;
-            document.getElementById('tamuHariIni').textContent = response.tamuHariIni;
-            document.getElementById('tamuInstitusi').textContent = response.jenisInstitusi.institusi;
-            
-            // Update admin page statistics if admin is logged in
-            if (adminData) {
-              document.getElementById('adminTotalTamu').textContent = response.totalTamu;
-              document.getElementById('adminTamuHariIni').textContent = response.tamuHariIni;
-              document.getElementById('adminTamuInstitusi').textContent = response.jenisInstitusi.institusi;
+          try {
+            if (response.success) {
+              // Update user page statistics
+              const totalTamuEl = document.getElementById('totalTamu');
+              const tamuHariIniEl = document.getElementById('tamuHariIni');
+              const tamuInstitusiEl = document.getElementById('tamuInstitusi');
+              const tamuPeroranganEl = document.getElementById('tamuPerorangan');
+              
+              if (totalTamuEl) totalTamuEl.textContent = response.totalTamu;
+              if (tamuHariIniEl) tamuHariIniEl.textContent = response.tamuMingguIni;
+              if (tamuInstitusiEl) tamuInstitusiEl.textContent = response.jenisInstitusi.institusi;
+              if (tamuPeroranganEl) tamuPeroranganEl.textContent = response.jenisInstitusi.perorangan;
+              
+              // Update admin page statistics if admin is logged in
+              if (adminData) {
+                const adminTotalTamuEl = document.getElementById('adminTotalTamu');
+                const adminTamuHariIniEl = document.getElementById('adminTamuHariIni');
+                const adminTamuInstitusiEl = document.getElementById('adminTamuInstitusi');
+                const adminTamuPeroranganEl = document.getElementById('adminTamuPerorangan');
+                
+                if (adminTotalTamuEl) adminTotalTamuEl.textContent = response.totalTamu;
+                if (adminTamuHariIniEl) adminTamuHariIniEl.textContent = response.tamuMingguIni;
+                if (adminTamuInstitusiEl) adminTamuInstitusiEl.textContent = response.jenisInstitusi.institusi;
+                if (adminTamuPeroranganEl) adminTamuPeroranganEl.textContent = response.jenisInstitusi.perorangan;
+              }
+            } else {
+              showAlert('error', 'Error', response.message);
             }
-          } else {
-            showAlert('error', 'Error', response.message);
+          } catch (err) {
+            console.error('Error updating statistics:', err);
+            showAlert('error', 'Error', 'Terjadi kesalahan saat memperbarui statistik.');
+          } finally {
+            hideLoading();
           }
-          hideLoading();
         })
         .withFailureHandler(function(error) {
           showAlert('error', 'Error', error.toString());
@@ -510,9 +640,11 @@
         .withSuccessHandler(function(response) {
           if (response.success) {
             allTamuData = response.data;
+            filteredData = [...allTamuData]; // Initialize filtered data with all data
+            currentPage = 1; // Reset to first page when loading new data
             
-            // Update daftar tamu table
-            updateDaftarTamuTable(allTamuData);
+            // Update daftar tamu table with pagination
+            updateDaftarTamuTable(filteredData);
             
             // Update recent visitors table (show only 5 most recent)
             const recentTamu = [...allTamuData].sort((a, b) => {
@@ -542,7 +674,7 @@
         .getAllTamu();
     }
     
-    // Update daftar tamu table
+    // Update daftar tamu table with pagination
     function updateDaftarTamuTable(data) {
       daftarTamuTable.innerHTML = '';
       
@@ -552,10 +684,24 @@
           <td colspan="7" class="py-4 text-center text-gray-500">Tidak ada data tamu</td>
         `;
         daftarTamuTable.appendChild(row);
+        
+        // Update pagination info and disable buttons
+        paginationInfo.textContent = `Menampilkan 0-0 dari 0 tamu`;
+        prevPageBtn.disabled = true;
+        nextPageBtn.disabled = true;
         return;
       }
       
-      data.forEach(function(tamu) {
+      // Calculate pagination values
+      const totalPages = Math.ceil(data.length / itemsPerPage);
+      const startIndex = (currentPage - 1) * itemsPerPage;
+      const endIndex = Math.min(startIndex + itemsPerPage, data.length);
+      
+      // Get current page data
+      const currentPageData = data.slice(startIndex, endIndex);
+      
+      // Populate table with current page data
+      currentPageData.forEach(function(tamu) {
         const row = document.createElement('tr');
         row.innerHTML = `
           <td class="py-2 px-4 border-b">${tamu['Tanggal']}</td>
@@ -575,50 +721,51 @@
         `;
         daftarTamuTable.appendChild(row);
       });
+      
+      // Update pagination info
+      paginationInfo.textContent = `Menampilkan ${startIndex + 1}-${endIndex} dari ${data.length} tamu`;
+      
+      // Update pagination button states
+      prevPageBtn.disabled = currentPage === 1;
+      nextPageBtn.disabled = currentPage === totalPages;
     }
     
-    // Search tamu
+    // Search tamu with pagination
     searchTamu.addEventListener('input', function() {
       const searchValue = this.value.toLowerCase();
       
       if (searchValue === '') {
-        updateDaftarTamuTable(allTamuData);
-        return;
+        filteredData = [...allTamuData];
+      } else {
+        filteredData = allTamuData.filter(function(tamu) {
+          return (
+            tamu['Nama'].toLowerCase().includes(searchValue) ||
+            tamu['Institusi/Asal'].toLowerCase().includes(searchValue) ||
+            tamu['Keperluan'].toLowerCase().includes(searchValue)
+          );
+        });
       }
       
-      const filteredData = allTamuData.filter(function(tamu) {
-        return (
-          tamu['Nama'].toLowerCase().includes(searchValue) ||
-          tamu['Institusi/Asal'].toLowerCase().includes(searchValue) ||
-          tamu['Keperluan'].toLowerCase().includes(searchValue)
-        );
-      });
-      
+      // Reset to first page when search changes
+      currentPage = 1;
       updateDaftarTamuTable(filteredData);
     });
     
-    // Hapus tamu
-    function hapusTamu(id) {
-      if (confirm('Apakah Anda yakin ingin menghapus data tamu ini?')) {
-        showLoading();
-        google.script.run
-          .withSuccessHandler(function(response) {
-            if (response.success) {
-              showAlert('success', 'Sukses', response.message);
-              loadAllTamu();
-              loadStatistics();
-            } else {
-              showAlert('error', 'Error', response.message);
-            }
-            hideLoading();
-          })
-          .withFailureHandler(function(error) {
-            showAlert('error', 'Error', error.toString());
-            hideLoading();
-          })
-          .hapusTamu(id);
+    // Pagination event listeners
+    prevPageBtn.addEventListener('click', function() {
+      if (currentPage > 1) {
+        currentPage--;
+        updateDaftarTamuTable(filteredData);
       }
-    }
+    });
+    
+    nextPageBtn.addEventListener('click', function() {
+      const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+      if (currentPage < totalPages) {
+        currentPage++;
+        updateDaftarTamuTable(filteredData);
+      }
+    });
     
     // Form Buku Tamu Submit
     formBukuTamu.addEventListener('submit', function(e) {
@@ -641,6 +788,7 @@
             showAlert('success', 'Sukses', response.message);
             formBukuTamu.reset();
             loadStatistics();
+            loadRecentVisitorsForUser(); // Refresh recent visitors table
           } else {
             showAlert('error', 'Error', response.message);
           }
@@ -723,12 +871,14 @@
             // Reset form
             formLogin.reset();
           } else {
-            showAlert('error', 'Login Gagal', response.message);
+            // Show error notification for failed login
+            showAlert('error', 'Login Gagal', response.message || 'Username atau password tidak valid');
           }
           hideLoading();
         })
         .withFailureHandler(function(error) {
-          showAlert('error', 'Error', error.toString());
+          showAlert('error', 'Error', 'Terjadi kesalahan saat login. Silakan coba lagi.');
+          console.error('Login error:', error);
           hideLoading();
         })
         .loginAdmin(username, password);
